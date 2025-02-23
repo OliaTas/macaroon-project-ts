@@ -1,0 +1,1127 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: Tavolga;
+    src: url("../assets/fonts/Tavolga.ttf");
+}
+
+@font-face {
+    font-family: GilroyRegular;
+    src: url("../assets/fonts/GilroyRegular.ttf");
+}
+
+@font-face {
+    font-family: GilroyExtraBold;
+    src: url("../assets/fonts/GilroyExtraBold.ttf");
+}
+
+@font-face {
+    font-family: GilroyBold;
+    src: url("../assets/fonts/GilroyBold.ttf");
+}
+
+@font-face {
+    font-family: GilroyMedium;
+    src: url("../assets/fonts/GilroyMedium.ttf");
+}
+
+body {
+    font-family: Tavolga, sans-serif;
+    position: relative;
+}
+
+
+.header {
+    padding: 36px 0 0;
+    background-color: rgb(235, 168, 177);
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0 289px 0 232px;
+    display: flex;
+    align-items: center;
+}
+
+.menu li a {
+    position: relative;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: GilroMedium, sans-serif;
+    color: rgb(119, 11, 29);
+    margin-right: 41px;
+}
+
+.menu li a:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #821328FF;
+    left: 0;
+    bottom: 0;
+    transform: scale(0);
+    transition: .5s;
+}
+.menu li a:hover:before {
+    transform: scale(1);
+}
+
+.header-phone {
+    font-size: 16px;
+    font-family: GilroyBold, sans-serif;
+    color: rgb(255, 255, 255);
+    width: 153px;
+}
+
+.main {
+    padding: 156px 0 108px 0;
+    background-color: rgb(235, 168, 177);
+    overflow: hidden;
+}
+
+.main .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-info {
+    z-index: 2;
+}
+
+.main-info-title {
+    font-size: 55px;
+    color: rgb(255, 255, 255);
+    line-height: 1.091;
+    max-width: 580px;
+}
+
+.main-info-description {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    line-height: 1.389;
+    padding: 60px 0 80px 0;
+    width: 349px;
+}
+
+.button {
+    font-size: 18px;
+    font-family: GilroyBold, sans-serif;
+    color: rgb(255, 255, 255);
+    border-radius: 40px;
+    text-align: center;
+    border: 0;
+    background-image: -webkit-linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
+    cursor: pointer;
+}
+
+.button:hover {
+    box-shadow: 0 5px 9px 1px rgba(130, 19, 40, 0.5);
+}
+
+.main-info-button {
+    padding: 22px 0 21px;
+    width: 240px;
+}
+
+.main-info-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-info-image::before,
+.main-info-image::after {
+    content: '';
+    position: absolute;
+    border: 1px solid #8213287F;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: pulse ease-out 3s infinite;
+    opacity: 0;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3.5);
+        opacity: 0;
+    }
+}
+
+.main-info-image::after {
+    animation-delay: .5s;
+}
+
+.main-info-image img {
+    z-index: 2;
+}
+
+.advantages {
+    background-color: rgb(255, 239, 239);
+    padding: 119px 0 120px 0;
+}
+
+.advantages-image img {
+    max-width: 100%;
+}
+
+.big-advantages {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.advantages-info-title {
+    max-width: 475px;
+    font-size: 45px;
+    color: rgb(51, 25, 7);
+    line-height: 1.222;
+}
+
+.advantages-info-text {
+    padding-top: 60px;
+    max-width: 400px;
+    font-size: 18px;
+    font-family: GilroyRegular, sans-serif;
+    color: rgb(51, 25, 7);
+    line-height: 1.556;
+}
+
+
+.small-advantages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 220px);
+    grid-column-gap: 86px;
+    margin-top: 88px;
+    justify-content: space-between;
+}
+
+.advantage-ellipse {
+    border-radius: 50%;
+    background-color: rgb(130, 19, 40);
+    width: 70px;
+    height: 70px;
+    text-align: center;
+}
+
+.advantage-ellipse:hover {
+    background-color: rgb(235, 168, 177);
+}
+
+
+.advantage-number {
+    font-size: 60px;
+    font-family: GilroyExtraBold, sans-serif;
+    color: rgb(255, 255, 255);
+    padding-top: 12px;
+}
+
+.advantage:hover .advantage-ellipse {
+    background-color: rgb(235, 168, 177);
+
+}
+.advantage:hover .advantage-number {
+    color: rgb(130, 19, 40);
+}
+
+.advantage-title {
+    padding: 13px 0 20px;
+    font-size: 20px;
+    font-family: GilroyExtraBold, sans-serif;
+    color: rgb(51, 25, 7);
+}
+
+.advantage-text {
+    width: 220px;
+    font-size: 15px;
+    font-family: Gilroy-Medium, sans-serif;
+    color: rgb(51, 25, 7);
+    line-height: 1.333;
+}
+
+.products {
+    background-color: rgb(235, 168, 177);
+    padding: 120px 0;
+}
+
+.products-items {
+    display: grid;
+    gap: 136px 29px;
+    grid-template-columns: repeat(auto-fill, minmax(263px, 263px));
+
+    justify-content: center;
+}
+
+.products-title {
+    font-size: 45px;
+    color: rgb(255, 255, 255);
+    line-height: 1.222;
+    margin-bottom: 143px;
+    text-align: center;
+}
+
+.product-item {
+    width: 263px;
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-radius: 20px;
+    position: relative;
+}
+
+.product-item-image {
+    max-width: 100%;
+    position: absolute;
+    top: -59px;
+    left: 35px;
+}
+
+.product-item:hover img {
+    transform: scale(1.1);
+}
+
+
+.product-item img {
+    transition-duration: 0.5s;
+}
+
+.product-item-title {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 109px 0 26px 0;
+
+}
+
+.product-item-order {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 21px 27px 21px;
+}
+
+.product-item-count {
+    font-size: 15px;
+    font-family: GilroyRegular, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.product-item-price {
+    font-size: 15px;
+    font-family: GilroyRegular, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.product-item-button {
+    width: 130px;
+    height: 50px;
+}
+
+.order {
+    background-color: rgb(255, 239, 239);
+    padding: 98px 0 120px 0;
+    overflow: hidden;
+}
+
+.order-images {
+    position: relative;
+}
+
+.big-strawberry {
+    position: absolute;
+    left: -15px;
+    top: -42px;
+    animation: big-strawberry 2s linear infinite;
+}
+
+@keyframes big-strawberry {
+    0% {
+        transform: translate(0);
+    }
+    50% {
+        transform: translate(0, 20px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+.order-image {
+    margin-left: 18px;
+}
+
+.order-form {
+    margin-left:  162px;
+    position: relative;
+}
+
+.order .container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.order-form-title {
+    font-size: 45px;
+    color: rgb(51, 25, 7);
+    line-height: 1.222;
+}
+
+.order-form-text {
+    font-size: 18px;
+    font-family: GilroyRegular, sans-serif;
+    color: rgb(51, 25, 7);
+    line-height: 1.556;
+    max-width: 403px;
+    padding: 41px 0 48px 0;
+}
+
+.order-forms {
+    font-size: 18px;
+    font-family: GilroyBold, sans-serif;
+    color: rgb(18, 10, 6);
+}
+
+.order-form-choice {
+    padding-bottom: 21px;
+}
+
+.order-form-fill {
+    padding: 25px 0 22px 0;
+}
+
+.order-form input {
+    border-width: 1px;
+    border-color: rgb(130, 19, 40);
+    border-style: solid;
+    border-radius: 30px;
+    background-color: transparent;
+    height: 60px;
+    padding: 0 25px;
+    width: 294px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.order-form input::placeholder {
+    font-size: 15px;
+    font-family: GilroyBold, sans-serif;
+    color: rgb(118, 12, 34);
+}
+
+.order-form-button {
+    width: 294px;
+    height: 60px;
+}
+
+.small-strawberry {
+    position: absolute;
+    bottom: 89px;
+    right: 127px;
+    animation: small-strawberry 3s linear infinite;
+}
+
+@keyframes small-strawberry {
+    0% {
+        transform: translate(0);
+    }
+    50% {
+        transform: translate(0, 25px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+.footer {
+    background-color: rgb(192, 112, 124);
+    padding: 73px 0 63px 0;
+}
+
+.footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.footer-rights {
+    margin-top: 19px;
+    font-size: 12px;
+    font-family: GilroyRegular, sans-serif;
+    color: rgb(227, 172, 180);
+}
+
+.footer-media {
+    text-align: center;
+}
+
+.footer-media svg {
+    fill: #FFFFFFFF;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 15px;
+}
+
+.media-instagram {
+    font-size: 16px;
+    font-family: GilroyBold, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.footer-phone {
+    font-size: 16px;
+    font-family: GilroyBold, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.present {
+    position: absolute;
+    display: flex;
+    align-items: end;
+    bottom: 31px;
+    right: 52px;
+    z-index: 3;
+}
+.present-text:after, .present-text:before {
+    content: "";
+    border: solid transparent;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+}
+.present-text:after {
+    border-left-color: rgb(254, 239, 238);
+    border-width: 10px;
+    margin-top: -10px;
+
+}
+
+.present-text:before {
+    border-left-color: rgb(119, 10, 29);
+    border-width: 12px;
+    margin-top: -12px;
+}
+
+
+.present-text {
+    border-width: 2px;
+    border-color: rgb(119, 10, 29);
+    border-style: solid;
+    border-radius: 10px;
+    background-color: rgb(254, 239, 238);
+    width: 172px;
+    padding: 16px 0 14px 0;
+    font-size: 15px;text-align: center;
+    font-family: GilroMedium, sans-serif;
+    color: rgb(119, 10, 29);
+    line-height: 1.333;
+    position: absolute;
+    transform: translate(-190px, 122px);
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+.present-ellipse:hover .present-text {
+    opacity: 100;
+    transform: translate(-190px, 10px);
+}
+
+.present-ellipse {
+    position: fixed;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    bottom: 30px;
+    right: 59px;
+    border: 0;
+    margin-left: 18px;
+}
+
+.present-image {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+}
+
+.burger {
+    display: none;
+}
+
+.close {
+    display: none;
+}
+
+@media screen  and (max-width: 1294px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media screen  and (max-width: 1170px) {
+    .header .container {
+        justify-content: space-between;
+    }
+
+    .menu ul {
+        padding: 0;
+        width: 315px;
+        justify-content: space-between;
+    }
+
+    .menu li a {
+        margin-right: 0;
+    }
+
+    .products-items {
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+    }
+
+    .small-advantages {
+        grid-column-gap: 10px;
+    }
+}
+
+@media screen  and (max-width: 1100px) {
+    .main-info-image::before,
+    .main-info-image::after {
+        width: 150px;
+        height: 150px;
+    }
+
+    .small-strawberry {
+        position: absolute;
+        top: 146px;
+        right: 187px;
+    }
+}
+
+@media screen  and (max-width: 1042px) {
+    .advantages-image {
+        width: 460px;
+        height: 278px;
+    }
+
+    .order-form {
+        margin-left: 100px;
+    }
+}
+
+@media screen  and (max-width: 976px) {
+    .main-info-image img {
+        width: 452px;
+        height: 400px;
+    }
+
+
+    .order-image {
+        width: 350px;
+        height: 400px;
+    }
+
+    .order-form {
+        margin-left: 70px;
+    }
+
+    .small-advantages {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media screen  and (max-width: 940px) {
+
+    .small-advantages {
+        justify-content: center;
+        gap: 80px 54px;
+    }
+
+    .advantage {
+        display: grid;
+        justify-items: center;
+    }
+}
+
+@media screen  and (max-width: 830px) {
+
+    .header .container {
+        justify-content: left;
+    }
+
+    .header-phone {
+        display: none;
+    }
+
+    .main {
+        padding-top: 97px;
+    }
+
+    .menu ul {
+        padding: 0 0 0 103px;
+    }
+
+    .main .container {
+        flex-direction: column;
+    }
+
+
+    .main-info-image {
+        margin-left: 181px;
+        bottom: 80px;
+    }
+}
+
+@media screen  and (max-width: 768px) {
+
+    .advantages .container {
+        text-align: center;
+    }
+
+    .products-items {
+        grid-template-columns: repeat(auto-fill, minmax(263px, 263px));
+    }
+
+    .big-advantages {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .advantages-image {
+        width: 302px;
+        height: 183px;
+    }
+
+    .advantages-info-text {
+        max-width: 668px;
+        margin-bottom: 40px;
+    }
+
+    .small-advantages {
+        grid-template-columns: repeat(auto-fill, 220px);
+    }
+
+    .advantages-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .order .container {
+        align-items: flex-end;
+        position: relative;
+    }
+
+    .order-images {
+        order: 2;
+        position: static;
+    }
+
+    .order-image {
+        width: 352px;
+        height: 398px;
+        position: absolute;
+        bottom: -90px;
+        right: 20px;
+    }
+
+    .order-form {
+        margin-left: 0;
+        position: static;
+    }
+
+    .big-strawberry {
+        top: 223px;
+        left: 348px;
+    }
+
+    .small-strawberry {
+        top: 154px;
+        right: 120px;
+    }
+
+}
+
+@media screen  and (max-width: 668px) {
+
+    .main {
+        padding-bottom: 43px;
+    }
+
+    .main .container {
+        text-align: center;
+        align-items: center;
+    }
+
+    .main-info {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .order-image {
+        display: none;
+    }
+
+    .small-strawberry {
+        display: none;
+    }
+
+    .main-info-image {
+        padding: 35px 0 0 0;
+        margin-left: 0;
+        bottom: 0;
+    }
+
+    .order .container {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .order-form {
+        z-index: 2;
+    }
+
+    .order-form input {
+        width: 344px;
+    }
+
+    .big-strawberry {
+        top: 137px;
+        left: 400px;
+        z-index: 1;
+    }
+
+    .order-form-button {
+        width: 344px;
+    }
+
+}
+
+@media screen  and (max-width: 568px) {
+    .header .container {
+        justify-content: space-between;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        top: 0;
+        left: 0;
+        background: #000000c9;
+        z-index: 4;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu ul li {
+        margin: 20px 0;
+    }
+
+    .menu li a {
+        font-size: 40px;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .burger svg {
+        width: 36px;
+        height: 36px;
+        fill: rgb(119, 11, 29);
+    }
+
+    .menu.open {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+    .menu ul {
+        padding: 0;
+
+    }
+
+    .menu .close {
+        display: block;
+        width: 24px;
+        height: 24px;
+        fill: rgb(119, 11, 29);
+        position: absolute;
+        top: 20px;
+        left: 20px
+    }
+
+
+    .main-info-image img {
+        position: relative;
+        width: 250px;
+        height: 207px;
+    }
+
+
+    .main-info-image::before,
+    .main-info-image::after {
+        width: 100px;
+        height: 100px;
+    }
+
+    @media screen  and (max-width: 436px) {
+        .menu li a {
+            font-size: 30px;
+        }
+
+        .main {
+            padding: 150px 0 43px;
+        }
+
+        .main .container {
+            text-align: center;
+            align-items: center;
+        }
+
+        .main-info-title {
+            font-size: 32px;
+            max-width: 338px;
+        }
+
+        .main-info-description {
+            font-size: 16px;
+            padding: 40px 0 40px 0;
+            width: 347px;
+        }
+
+        .main-info-image {
+            margin-left: 0;
+            margin-top: 38px;
+        }
+
+        .main-info-image img {
+            position: relative;
+            z-index: 2;
+            max-width: 250px;
+            max-height: 207px;
+
+        }
+
+        .order {
+            padding: 100px 0 77px 0;
+        }
+
+        .order-form-title {
+            font-size: 30px;
+        }
+
+        .order-form-text {
+            font-size: 16px;
+        }
+
+        .big-strawberry {
+            top: 105px;
+            left: 288px;
+        }
+
+    }
+
+    @media screen  and (max-width: 376px) {
+
+
+        .advantages-info-title {
+            margin-left: 0px;
+            font-size: 30px;
+            width: 340px;
+        }
+
+        .advantages-info-text {
+            font-size: 16px;
+            width: 346px;
+            padding: 40px 0 59px 0;
+            margin-bottom: 0;
+        }
+
+        .advantages-image {
+            padding-bottom: 60px;
+        }
+
+        .small-advantages {
+            grid-template-columns: 1fr 1fr;
+            gap: 36px 15px;
+        }
+
+        .advantage-title {
+            font-size: 18px;
+        }
+
+        .advantage-text {
+            font-size: 13px;
+            width: 158px;
+            height: 145px;
+        }
+
+        .advantages {
+            padding: 100px 0 50px 0;
+        }
+
+        .products {
+            padding: 100px 0;
+        }
+
+        .products-title {
+            font-size: 30px;
+            margin-bottom: 122px;
+        }
+
+        .products-items {
+            gap: 142px 0;
+        }
+
+        .big-strawberry {
+            top: 118px;
+            left: 283px;
+        }
+
+
+        .footer {
+            padding: 50px 0 50px 0;
+        }
+
+        .footer .container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            position: relative;
+        }
+
+        .footer-logo p {
+            position: absolute;
+            width: 168px;
+            top: 220px;
+            left: -18px;
+        }
+
+        .footer-phone {
+            order: 1;
+            padding: 40px 0 40px 0;
+        }
+
+        .footer-media {
+            order: 2;
+            margin-bottom: 40px;
+        }
+
+        .footer-rights {
+            margin-top: 0;
+        }
+    }
+
+}
+@media screen  and (max-width: 365px) {
+    .main-info-title {
+        font-size: 25px;
+    }
+
+    .main-info-description {
+        font-size: 13px;
+        width: 297px;
+    }
+
+    .advantages {
+        padding-top: 50px;
+    }
+
+    .advantages-image img {
+        width: 250px;
+        height: 130px;
+    }
+
+    .advantages-info-title {
+        font-size: 25px;
+        width: 250px;
+
+    }
+
+    .advantages-info-text {
+        font-size: 13px;
+        width: 250px;
+    }
+
+    .small-advantages {
+        grid-template-columns: repeat(auto-fill, 220px);
+        margin-top: 0;
+    }
+
+    .order {
+        padding-top: 77px;
+    }
+
+    .order-form {
+        text-align: center;
+    }
+
+    .order-form-title {
+        font-size: 25px;
+    }
+
+    .order-form-text {
+        font-size: 15px;
+        width: 286px;
+    }
+
+    .order-form input {
+        width: 280px;
+    }
+
+    .order-form-button {
+        width: 280px;
+    }
+
+    .big-strawberry {
+        display: none;
+    }
+}
