@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductType } from './types/product.type';
 import { AdvantageType } from './types/advantage.type';
+import { ProductService } from './services/product.service';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public showPresent: boolean = true;
   public phone: string = '+375 (29) 368-98-68';
   public instagramLink: string = 'https://www.instagram.com/';  
@@ -31,33 +33,20 @@ export class AppComponent {
     
   ]
 
-  public products: ProductType[] = [
-    {
-      image: 'product1.png',
-      title: 'Макарун с малиной',
-      price: '1.70 руб'
-    },
-    {
-      image: 'product2.png',
-      title: 'Макарун с манго',
-      price: '1.70 руб'
-    },
-    {
-      image: 'product3.png',
-      title: 'Пирог с ванилью',
-      price: '1.70 руб'
-    },
-    {
-      image: 'product4.png',
-      title: 'Пирог с фисташками',
-      price: '1.70 руб'
-    },
-  ];
+  public products: ProductType[] = [];
 
   public formValues = {
     productTitle: '',
     name: '',
-    phone: '',
+    phone: '375293689868',
+  }
+
+  constructor(private productService: ProductService,
+    public cartService: CartService
+  ) {}
+
+  ngOnInit() {
+    this.products = this.productService.getProducts();
   }
 
   public  scrollTo (target: HTMLElement): void {
@@ -66,7 +55,10 @@ export class AppComponent {
 
   public addToCart(product: ProductType, target: HTMLElement): void {
     this.scrollTo(target);
-    this.formValues.productTitle = product.title.toUpperCase();;
+    this.formValues.productTitle = product.title.toUpperCase();
+    // this.cartService.count++;
+    this.cartService.addToCart(product.price); 
+    alert(`${product.title} добавлен в корзину!`);
   }
 
   public createOrder(): void {
@@ -89,5 +81,15 @@ export class AppComponent {
       name: '',
       phone: '',
     }
+
+    this.phone = '';
+  }
+
+  cleanPhoneNumber(event: any) {
+    let input = event.target.value;
+
+    input = input.replace(/\D/g, '');
+
+    this.formValues.phone = input;
   }
 }

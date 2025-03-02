@@ -1,0 +1,63 @@
+.advantage-ellipse {
+    border-radius: 50%;
+    background-color: rgb(130, 19, 40);
+    width: 70px;
+    height: 70px;
+    text-align: center;
+}
+
+.advantage-ellipse:hover {
+    background-color: rgb(235, 168, 177);
+}
+
+
+.advantage-number {
+    font-size: 60px;
+    font-family: GilroyExtraBold, sans-serif;
+    color: rgb(255, 255, 255);
+    padding-top: 12px;
+}
+
+.advantage:hover .advantage-ellipse {
+    background-color: rgb(235, 168, 177);
+
+}
+
+.advantage:hover .advantage-number {
+    color: rgb(130, 19, 40);
+}
+
+.advantage-title {
+    padding: 13px 0 20px;
+    font-size: 20px;
+    font-family: GilroyExtraBold, sans-serif;
+    color: rgb(51, 25, 7);
+}
+
+.advantage-text {
+    width: 220px;
+    font-size: 15px;
+    font-family: Gilroy-Medium, sans-serif;
+    color: rgb(51, 25, 7);
+    line-height: 1.333;
+}
+
+@media screen and (max-width: 940px) {
+    .advantage {
+        display: grid;
+        justify-items: center;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    
+    .advantage-title {
+        font-size: 18px;
+    }
+
+    .advantage-text {
+        font-size: 13px;
+        width: 158px;
+        height: 145px;
+    }
+}

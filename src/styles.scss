@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    font-size: 18px;
+    font-family: GilroyBold, sans-serif;
+    color: rgb(255, 255, 255);
+    border-radius: 40px;
+    text-align: center;
+    border: 0;
+   background-color: rgb(164, 40, 61);;
+    // background-image: -webkit-linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
+    cursor: pointer;
+}
+
+.button:hover {
+    box-shadow: 0 5px 9px 1px rgba(130, 19, 40, 0.5);
+   
+}

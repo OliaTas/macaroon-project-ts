@@ -1,0 +1,13 @@
+<figure class="product-item">
+  <img class="product-item-image" src="assets/images/{{product.image}}" alt="Macaroon">
+  <h3 class="product-item-title">{{product.title}}</h3>
+  <section class="product-item-order">
+    <div class="product-item-info">
+      <p class="product-item-count">1 шт.</p>
+      <p class="product-item-price">{{product.price | currency:'RUB':'':'1.2-2'}} руб.</p>
+    </div>
+    <button class="button product-item-button"
+     Background [defaultBackgroundColor]="'rgb(164, 40, 61)'"
+      [hoverBackgroundColor]="'rgb(138 79 89)'" (click)="addProductToCard()">Заказать</button>
+  </section>
+</figure>

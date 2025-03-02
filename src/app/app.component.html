@@ -5,21 +5,20 @@
     </section>
     <nav class="menu" id="menu">
       <div class="close">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             viewBox="0 0 492 492" style="enable-background:new 0 0 492 492;" xml:space="preserve">
-                  <g>
-	              <g>
-		        <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px" y="0px" viewBox="0 0 492 492" style="enable-background:new 0 0 492 492;" xml:space="preserve">
+          <g>
+            <g>
+              <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
 			c-5.068-5.076-11.824-7.856-19.036-7.856c-7.2,0-13.956,2.78-19.024,7.856L246.008,191.82L62.048,7.872
 			c-5.06-5.076-11.82-7.856-19.028-7.856c-7.2,0-13.96,2.78-19.02,7.856L7.872,23.988c-10.496,10.496-10.496,27.568,0,38.052
 			L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
 			c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
 			c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
-			c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"/>
-	             </g>
-                  </g>
-                </svg>
+			c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z" />
+            </g>
+          </g>
+        </svg>
       </div>
       <ul>
         <li>
@@ -53,7 +52,11 @@
           Побалуйте себя и своих близких самыми вкусными и ароматными домашними пироженками Macaroon!
         </figure>
         <figure class="main-info-action">
-          <button class="button main-info-button"  (click)="scrollTo(productsElement)">Выбрать макарун</button>
+          <button class="button main-info-button"
+          Background
+          [defaultBackgroundColor] = "'rgb(164, 40, 61)'"
+          [hoverBackgroundColor] = "'rgb(138 79 89)'"
+          (click)="scrollTo(productsElement)">Выбрать макарун</button>
         </figure>
       </section>
       <section class="main-info-image">
@@ -80,13 +83,7 @@
         </figure>
       </section>
       <section class="small-advantages">
-        <figure class="advantage" *ngFor="let advantage of advantages; let i = index">
-          <div class="advantage-ellipse">
-            <div class="advantage-number">{{i + 1}}</div>
-          </div>
-          <h3 class="advantage-title">{{advantage.title}}</h3>
-          <p class="advantage-text">{{advantage.description}}</p>
-        </figure>
+        <advantage *ngFor="let advantage of advantages; let i = index" [advantage]="advantage" [index]="i"></advantage>
       </section>
     </article>
   </section>
@@ -95,17 +92,7 @@
     <article class="container">
       <h2 class="products-title">Выберите свой макарун</h2>
       <section class="products-items">
-        <figure class="product-item" *ngFor="let product of products; let i = index">
-          <img class="product-item-image" src="assets/images/{{product.image}}" alt="Macaroon {{i + 1}}">
-          <h3 class="product-item-title">{{product.title}}</h3>
-          <section class="product-item-order">
-            <div class="product-item-info">
-              <p class="product-item-count">1 шт.</p>
-              <p class="product-item-price">{{product.price}}</p>
-            </div>
-            <button class="button product-item-button" (click)="addToCart(product, orderElement)">Заказать</button>
-          </section>
-        </figure>
+        <product *ngFor="let product of products" [product]="product" (addToCardEvent)="addToCart($event, orderElement)"></product>
       </section>
     </article>
   </section>
@@ -122,16 +109,24 @@
           пекаря!</p>
         <figure class="order-forms order-form-choice">Ваш выбор</figure>
         <figure>
-          <input type="text" placeholder="Напишите, что хотите заказать..." name="productTitle" [(ngModel)]="formValues.productTitle">
+          <input type="text" placeholder="Напишите, что хотите заказать..." name="productTitle"
+            [(ngModel)]="formValues.productTitle">
         </figure>
         <p class="order-forms order-form-fill">Заполните данные для заказа</p>
         <figure>
           <input type="text" placeholder="Ваше имя" name="name" [(ngModel)]="formValues.name">
         </figure>
         <figure>
-          <input type="number" placeholder="+375 (__) ___ - __ - __" name="phone" [(ngModel)]="formValues.phone">
+          <input type="text"  placeholder="Ваш номер телефона" name="phone"
+           [(ngModel)]="formValues.phone"  (input)="cleanPhoneNumber($event)"  
+           [value]="formValues.phone | phoneNumber">
         </figure>
-        <button class="button order-form-button" (click)="createOrder()">Оформить заказ</button>
+        
+        <button class="button order-form-button"
+        Background
+          [defaultBackgroundColor] = "'rgb(164, 40, 61)'"
+          [hoverBackgroundColor] = "'rgb(138 79 89)'"
+         (click)="createOrder()">Оформить заказ</button>
 
       </section>
       <img src="assets/images/strawberry-small.png" alt="Strawberry" class="small-strawberry">
@@ -149,7 +144,8 @@
     <section class="footer-media">
       <a href="{{instagramLink}}" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
-          <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+          <path
+            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
         </svg>
       </a>
       <p class="media-instagram">Мы в Instagram</p>
@@ -159,10 +155,9 @@
 
   <article *ngIf="showPresent" class="present">
     <section class=" button present-ellipse">
-      <img src="assets/images/present.png" alt="Present" class="present-image">
-      <section class="present-text">Оформите заказ
-        и получите подарок!
-      </section>
+      <img src="assets/images/cart.png" alt="Cart" class="present-image">
+      <section class="present-text">{{cartService.amount | number:'1.2-2'}} руб</section>
+      <div class="cart-circle">{{cartService.count}}</div>
     </section>
 
   </article>

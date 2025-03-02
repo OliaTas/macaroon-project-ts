@@ -1,0 +1,9 @@
+<figure class="advantage">
+    <div class="advantage-ellipse">
+      <div class="advantage-number">{{index + 1}}</div>
+    </div>
+    <h3 class="advantage-title">{{advantage.title}}</h3>
+    <p class="advantage-text" (click)="toggleText()">
+      {{ isExpanded ? advantage.description : (advantage.description | shortenAdvantage) }}
+    </p>
+  </figure>

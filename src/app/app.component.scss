@@ -34,9 +34,8 @@ body {
     position: relative;
 }
 
-
 .header {
-    padding: 36px 0 0;
+    padding: 36px 0;
     background-color: rgb(235, 168, 177);
     position: fixed;
     width: 100%;
@@ -81,6 +80,7 @@ body {
     transform: scale(0);
     transition: .5s;
 }
+
 .menu li a:hover:before {
     transform: scale(1);
 }
@@ -122,20 +122,6 @@ body {
     width: 349px;
 }
 
-.button {
-    font-size: 18px;
-    font-family: GilroyBold, sans-serif;
-    color: rgb(255, 255, 255);
-    border-radius: 40px;
-    text-align: center;
-    border: 0;
-    background-image: -webkit-linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
-    cursor: pointer;
-}
-
-.button:hover {
-    box-shadow: 0 5px 9px 1px rgba(130, 19, 40, 0.5);
-}
 
 .main-info-button {
     padding: 22px 0 21px;
@@ -167,9 +153,11 @@ body {
         transform: scale(0.5);
         opacity: 0;
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         transform: scale(3.5);
         opacity: 0;
@@ -224,48 +212,6 @@ body {
     justify-content: space-between;
 }
 
-.advantage-ellipse {
-    border-radius: 50%;
-    background-color: rgb(130, 19, 40);
-    width: 70px;
-    height: 70px;
-    text-align: center;
-}
-
-.advantage-ellipse:hover {
-    background-color: rgb(235, 168, 177);
-}
-
-
-.advantage-number {
-    font-size: 60px;
-    font-family: GilroyExtraBold, sans-serif;
-    color: rgb(255, 255, 255);
-    padding-top: 12px;
-}
-
-.advantage:hover .advantage-ellipse {
-    background-color: rgb(235, 168, 177);
-
-}
-.advantage:hover .advantage-number {
-    color: rgb(130, 19, 40);
-}
-
-.advantage-title {
-    padding: 13px 0 20px;
-    font-size: 20px;
-    font-family: GilroyExtraBold, sans-serif;
-    color: rgb(51, 25, 7);
-}
-
-.advantage-text {
-    width: 220px;
-    font-size: 15px;
-    font-family: Gilroy-Medium, sans-serif;
-    color: rgb(51, 25, 7);
-    line-height: 1.333;
-}
 
 .products {
     background-color: rgb(235, 168, 177);
@@ -288,61 +234,6 @@ body {
     text-align: center;
 }
 
-.product-item {
-    width: 263px;
-    border-width: 2px;
-    border-color: rgb(255, 255, 255);
-    border-style: solid;
-    border-radius: 20px;
-    position: relative;
-}
-
-.product-item-image {
-    max-width: 100%;
-    position: absolute;
-    top: -59px;
-    left: 35px;
-}
-
-.product-item:hover img {
-    transform: scale(1.1);
-}
-
-
-.product-item img {
-    transition-duration: 0.5s;
-}
-
-.product-item-title {
-    font-size: 18px;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    padding: 109px 0 26px 0;
-
-}
-
-.product-item-order {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 21px 27px 21px;
-}
-
-.product-item-count {
-    font-size: 15px;
-    font-family: GilroyRegular, sans-serif;
-    color: rgb(255, 255, 255);
-}
-
-.product-item-price {
-    font-size: 15px;
-    font-family: GilroyRegular, sans-serif;
-    color: rgb(255, 255, 255);
-}
-
-.product-item-button {
-    width: 130px;
-    height: 50px;
-}
 
 .order {
     background-color: rgb(255, 239, 239);
@@ -365,9 +256,11 @@ body {
     0% {
         transform: translate(0);
     }
+
     50% {
         transform: translate(0, 20px);
     }
+
     100% {
         transform: translate(0);
     }
@@ -378,7 +271,7 @@ body {
 }
 
 .order-form {
-    margin-left:  162px;
+    margin-left: 162px;
     position: relative;
 }
 
@@ -453,9 +346,11 @@ body {
     0% {
         transform: translate(0);
     }
+
     50% {
         transform: translate(0, 25px);
     }
+
     100% {
         transform: translate(0);
     }
@@ -511,13 +406,16 @@ body {
     right: 52px;
     z-index: 3;
 }
-.present-text:after, .present-text:before {
+
+.present-text:after,
+.present-text:before {
     content: "";
     border: solid transparent;
     position: absolute;
     left: 100%;
     top: 50%;
 }
+
 .present-text:after {
     border-left-color: rgb(254, 239, 238);
     border-width: 10px;
@@ -538,9 +436,10 @@ body {
     border-style: solid;
     border-radius: 10px;
     background-color: rgb(254, 239, 238);
-    width: 172px;
-    padding: 16px 0 14px 0;
-    font-size: 15px;text-align: center;
+    width: 150px;
+    padding: 16px 0;
+    font-size: 20px;
+    text-align: center;
     font-family: GilroMedium, sans-serif;
     color: rgb(119, 10, 29);
     line-height: 1.333;
@@ -567,9 +466,23 @@ body {
 }
 
 .present-image {
+    width: 50px;
     position: absolute;
     top: 18px;
-    left: 18px;
+    left: 16px;
+}
+
+.cart-circle {
+    position: absolute;
+    right: 1px;
+    top: -4px;
+    height: 27px;
+    width: 27px;
+    background-color: rgb(254, 239, 238);
+    border-radius: 50%;
+    border: 2px solid rgb(119, 10, 20);
+    color: rgb(119, 10, 29);
+    font-size: 20px;
 }
 
 .burger {
@@ -580,14 +493,14 @@ body {
     display: none;
 }
 
-@media screen  and (max-width: 1294px) {
+@media screen and (max-width: 1294px) {
     .container {
         padding-left: 15px;
         padding-right: 15px;
     }
 }
 
-@media screen  and (max-width: 1170px) {
+@media screen and (max-width: 1170px) {
     .header .container {
         justify-content: space-between;
     }
@@ -612,7 +525,8 @@ body {
     }
 }
 
-@media screen  and (max-width: 1100px) {
+@media screen and (max-width: 1100px) {
+
     .main-info-image::before,
     .main-info-image::after {
         width: 150px;
@@ -626,7 +540,7 @@ body {
     }
 }
 
-@media screen  and (max-width: 1042px) {
+@media screen and (max-width: 1042px) {
     .advantages-image {
         width: 460px;
         height: 278px;
@@ -637,7 +551,7 @@ body {
     }
 }
 
-@media screen  and (max-width: 976px) {
+@media screen and (max-width: 976px) {
     .main-info-image img {
         width: 452px;
         height: 400px;
@@ -659,20 +573,15 @@ body {
 
 }
 
-@media screen  and (max-width: 940px) {
+@media screen and (max-width: 940px) {
 
     .small-advantages {
         justify-content: center;
         gap: 80px 54px;
     }
-
-    .advantage {
-        display: grid;
-        justify-items: center;
-    }
 }
 
-@media screen  and (max-width: 830px) {
+@media screen and (max-width: 830px) {
 
     .header .container {
         justify-content: left;
@@ -701,7 +610,7 @@ body {
     }
 }
 
-@media screen  and (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
     .advantages .container {
         text-align: center;
@@ -773,7 +682,7 @@ body {
 
 }
 
-@media screen  and (max-width: 668px) {
+@media screen and (max-width: 668px) {
 
     .main {
         padding-bottom: 43px;
@@ -830,7 +739,7 @@ body {
 
 }
 
-@media screen  and (max-width: 568px) {
+@media screen and (max-width: 568px) {
     .header .container {
         justify-content: space-between;
     }
@@ -910,7 +819,7 @@ body {
         height: 100px;
     }
 
-    @media screen  and (max-width: 436px) {
+    @media screen and (max-width: 436px) {
         .menu li a {
             font-size: 30px;
         }
@@ -967,7 +876,7 @@ body {
 
     }
 
-    @media screen  and (max-width: 376px) {
+    @media screen and (max-width: 376px) {
 
 
         .advantages-info-title {
@@ -990,16 +899,6 @@ body {
         .small-advantages {
             grid-template-columns: 1fr 1fr;
             gap: 36px 15px;
-        }
-
-        .advantage-title {
-            font-size: 18px;
-        }
-
-        .advantage-text {
-            font-size: 13px;
-            width: 158px;
-            height: 145px;
         }
 
         .advantages {
@@ -1061,7 +960,8 @@ body {
     }
 
 }
-@media screen  and (max-width: 365px) {
+
+@media screen and (max-width: 365px) {
     .main-info-title {
         font-size: 25px;
     }
